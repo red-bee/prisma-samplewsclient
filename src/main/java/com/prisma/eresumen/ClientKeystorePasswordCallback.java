@@ -16,7 +16,9 @@ public class ClientKeystorePasswordCallback implements CallbackHandler {
     private Map<String, String> passwords = 
         new HashMap<String, String>();
     
+    
     public ClientKeystorePasswordCallback() {
+    	//Alias del certificado y clave privada 
         passwords.put("007", "ckpass");
     }
 

@@ -1,11 +1,5 @@
 package com.prisma.eresumen;
 
-
-/**
- * Please modify this class to meet your needs
- * This class is not complete
- */
-
 import java.net.URL;
 
 import javax.xml.namespace.QName;
@@ -16,6 +10,7 @@ import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.log4j.Logger;
 
+import com.visa.erad.LiquidacionResponse;
 import com.visa.erad.LiquidacionWSServiceService;
 import com.visa.erad.LiquidacionesResponse;
 import com.visa.erad.LiquidacionesWS;
@@ -29,7 +24,6 @@ import com.visa.erad.LiquidacionesWS;
 public final class SampleClient {
 
     private static final QName SERVICE_NAME = new QName("http://erad.visa.com/", "LiquidacionWSServiceService");
-    //private static final QName SERVICE_NAME = new QName("http://apache.org/hello_world_soap_http", "SOAPService");
     private static final QName PORT_NAME = new QName("http://erad.visa.com/", "liquidacionesWSPort");
     
     public static void main(String args[]) throws java.lang.Exception {
@@ -38,7 +32,8 @@ public final class SampleClient {
     	Logger logger = Logger.getLogger(SampleClient.class);
     	
     	//url o path del wsdl 
-        URL wsdlURL = new URL("http://localhost:8080/resumenes/services/liquidacionWS?wsdl");
+        //URL wsdlURL = new URL("http://localhost:8080/resumenes/services/liquidacionWS?wsdl");
+        URL wsdlURL = new URL("liquidacionWS.xml");
         
         LiquidacionWSServiceService ss = new LiquidacionWSServiceService(wsdlURL, SERVICE_NAME);
         LiquidacionesWS port = ss.getLiquidacionesWSPort(); 
@@ -50,23 +45,30 @@ public final class SampleClient {
         try {
         	
         	System.out.println("invicando getLiquidaciones");
-            java.lang.String _getLiquidaciones_fechaDesde = "01/01/2014";
-            java.lang.String _getLiquidaciones_fechaHasta = "31/12/2015";
-            java.lang.String _getLiquidaciones_numeroCuenta = "0122082306";
-            java.lang.String _getLiquidaciones_plataforma = "CRE-PPL";
+        	//seteo parametros para invocar al ws
+            String _getLiquidaciones_fechaDesde = "01/01/2014";
+            String _getLiquidaciones_fechaHasta = "31/12/2015";
+            String _getLiquidaciones_numeroCuenta = "0122082306";
+            String _getLiquidaciones_plataforma = "CRE-PPL";
             
             LiquidacionesResponse response = port.getLiquidaciones(_getLiquidaciones_fechaDesde, _getLiquidaciones_fechaHasta, _getLiquidaciones_numeroCuenta, _getLiquidaciones_plataforma);
-            System.out.println("getLiquidaciones.result=" + response);
             
+            System.out.println("getLiquidaciones.result=" + response);
             System.out.println("codigo error: " + response.getCodigoError());
             System.out.println("mensaje: " + response.getMensaje());
             System.out.println("liquidaciones: " + response.getLiquidaciones());
             
             
-//       	 System.out.println("Invoking getLiquidacion...");
-			//             java.lang.String _getLiquidacion_liquidacionID = "CRE-PPL05179278612015-04-09 00:00:00.0";
-			//             client.com.redbee.visa.LiquidacionResponse _getLiquidacion__return = port.getLiquidacion(_getLiquidacion_liquidacionID);
-			//             System.out.println("getLiquidacion.result=" + _getLiquidacion__return);
+       	 	System.out.println("invicando getLiquidacion...");
+       	 	//seteo parametros para invocar al ws
+		    java.lang.String _getLiquidacion_liquidacionID = "CRE-PPL05179278612015-04-09 00:00:00.0";
+		    
+		    LiquidacionResponse liquidacionResponse = port.getLiquidacion(_getLiquidacion_liquidacionID);
+            
+		    System.out.println("getLiquidacion.result=" + liquidacionResponse);
+            System.out.println("codigo error: " + liquidacionResponse.getCodigoError());
+            System.out.println("mensaje: " + liquidacionResponse.getMensaje());
+            System.out.println("liquidacion: " + liquidacionResponse.getDocument());
 
             
         } catch (Exception e) {
