@@ -43,7 +43,7 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <!--wsdl>http://localhost:8080/resumenes/services/liquidacionWS?wsdl</wsdl -->
-                                    <wsdl>src/main/resource/liquidacionWS.xml</wsdl>
+                                    <wsdl>src/main/resources/liquidacionWS.xml</wsdl>
                                     <extraargs>
                                         <extraarg>-client</extraarg>
                                     </extraargs>
