@@ -24,24 +24,36 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _SetGrailsApplication_QNAME = new QName("http://erad.visa.com/", "setGrailsApplication");
-    private final static QName _GetGrailsApplicationResponse_QNAME = new QName("http://erad.visa.com/", "getGrailsApplicationResponse");
     private final static QName _GetRepositoryServiceResponse_QNAME = new QName("http://erad.visa.com/", "getRepositoryServiceResponse");
     private final static QName _SetRepositoryService_QNAME = new QName("http://erad.visa.com/", "setRepositoryService");
-    private final static QName _SetRepositoryServiceResponse_QNAME = new QName("http://erad.visa.com/", "setRepositoryServiceResponse");
+    private final static QName _GetStatusEnvio_QNAME = new QName("http://erad.visa.com/", "getStatusEnvio");
     private final static QName _GetLiquidacion_QNAME = new QName("http://erad.visa.com/", "getLiquidacion");
-    private final static QName _GetLiquidaciones_QNAME = new QName("http://erad.visa.com/", "getLiquidaciones");
+    private final static QName _RenviarEmail_QNAME = new QName("http://erad.visa.com/", "renviarEmail");
     private final static QName _GetLiquidacionesResponse_QNAME = new QName("http://erad.visa.com/", "getLiquidacionesResponse");
+    private final static QName _GetLiquidacionResponse_QNAME = new QName("http://erad.visa.com/", "getLiquidacionResponse");
+    private final static QName _GetGrailsApplication_QNAME = new QName("http://erad.visa.com/", "getGrailsApplication");
+    private final static QName _GetStatusEnvioResponse_QNAME = new QName("http://erad.visa.com/", "getStatusEnvioResponse");
+    private final static QName _RenviarEmailResponse_QNAME = new QName("http://erad.visa.com/", "renviarEmailResponse");
+    private final static QName _SetGrailsApplication_QNAME = new QName("http://erad.visa.com/", "setGrailsApplication");
+    private final static QName _GetGrailsApplicationResponse_QNAME = new QName("http://erad.visa.com/", "getGrailsApplicationResponse");
+    private final static QName _SetRepositoryServiceResponse_QNAME = new QName("http://erad.visa.com/", "setRepositoryServiceResponse");
+    private final static QName _GetLiquidaciones_QNAME = new QName("http://erad.visa.com/", "getLiquidaciones");
     private final static QName _GetRepositoryService_QNAME = new QName("http://erad.visa.com/", "getRepositoryService");
     private final static QName _SetGrailsApplicationResponse_QNAME = new QName("http://erad.visa.com/", "setGrailsApplicationResponse");
-    private final static QName _GetGrailsApplication_QNAME = new QName("http://erad.visa.com/", "getGrailsApplication");
-    private final static QName _GetLiquidacionResponse_QNAME = new QName("http://erad.visa.com/", "getLiquidacionResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.visa.erad
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link RenviarEmailResponse }
+     * 
+     */
+    public RenviarEmailResponse createRenviarEmailResponse() {
+        return new RenviarEmailResponse();
     }
 
     /**
@@ -61,6 +73,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SetRepositoryServiceResponse }
+     * 
+     */
+    public SetRepositoryServiceResponse createSetRepositoryServiceResponse() {
+        return new SetRepositoryServiceResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetLiquidaciones }
+     * 
+     */
+    public GetLiquidaciones createGetLiquidaciones() {
+        return new GetLiquidaciones();
+    }
+
+    /**
+     * Create an instance of {@link GetRepositoryService }
+     * 
+     */
+    public GetRepositoryService createGetRepositoryService() {
+        return new GetRepositoryService();
+    }
+
+    /**
+     * Create an instance of {@link SetGrailsApplicationResponse }
+     * 
+     */
+    public SetGrailsApplicationResponse createSetGrailsApplicationResponse() {
+        return new SetGrailsApplicationResponse();
+    }
+
+    /**
      * Create an instance of {@link GetRepositoryServiceResponse }
      * 
      */
@@ -77,11 +121,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SetRepositoryServiceResponse }
+     * Create an instance of {@link GetStatusEnvio }
      * 
      */
-    public SetRepositoryServiceResponse createSetRepositoryServiceResponse() {
-        return new SetRepositoryServiceResponse();
+    public GetStatusEnvio createGetStatusEnvio() {
+        return new GetStatusEnvio();
     }
 
     /**
@@ -93,11 +137,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetRepositoryService }
+     * Create an instance of {@link RenviarEmail }
      * 
      */
-    public GetRepositoryService createGetRepositoryService() {
-        return new GetRepositoryService();
+    public RenviarEmail createRenviarEmail() {
+        return new RenviarEmail();
     }
 
     /**
@@ -109,19 +153,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetLiquidaciones }
+     * Create an instance of {@link GetGrailsApplication }
      * 
      */
-    public GetLiquidaciones createGetLiquidaciones() {
-        return new GetLiquidaciones();
-    }
-
-    /**
-     * Create an instance of {@link SetGrailsApplicationResponse }
-     * 
-     */
-    public SetGrailsApplicationResponse createSetGrailsApplicationResponse() {
-        return new SetGrailsApplicationResponse();
+    public GetGrailsApplication createGetGrailsApplication() {
+        return new GetGrailsApplication();
     }
 
     /**
@@ -133,11 +169,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetGrailsApplication }
+     * Create an instance of {@link GetStatusEnvioResponse }
      * 
      */
-    public GetGrailsApplication createGetGrailsApplication() {
-        return new GetGrailsApplication();
+    public GetStatusEnvioResponse createGetStatusEnvioResponse() {
+        return new GetStatusEnvioResponse();
     }
 
     /**
@@ -149,6 +185,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReenvioResponse }
+     * 
+     */
+    public ReenvioResponse createReenvioResponse() {
+        return new ReenvioResponse();
+    }
+
+    /**
      * Create an instance of {@link LiquidacionesResponse }
      * 
      */
@@ -157,29 +201,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Envio }
+     * 
+     */
+    public Envio createEnvio() {
+        return new Envio();
+    }
+
+    /**
+     * Create an instance of {@link EnvioStatusResponse }
+     * 
+     */
+    public EnvioStatusResponse createEnvioStatusResponse() {
+        return new EnvioStatusResponse();
+    }
+
+    /**
      * Create an instance of {@link LiquidacionResponse }
      * 
      */
     public LiquidacionResponse createLiquidacionResponse() {
         return new LiquidacionResponse();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetGrailsApplication }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "setGrailsApplication")
-    public JAXBElement<SetGrailsApplication> createSetGrailsApplication(SetGrailsApplication value) {
-        return new JAXBElement<SetGrailsApplication>(_SetGrailsApplication_QNAME, SetGrailsApplication.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetGrailsApplicationResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getGrailsApplicationResponse")
-    public JAXBElement<GetGrailsApplicationResponse> createGetGrailsApplicationResponse(GetGrailsApplicationResponse value) {
-        return new JAXBElement<GetGrailsApplicationResponse>(_GetGrailsApplicationResponse_QNAME, GetGrailsApplicationResponse.class, null, value);
     }
 
     /**
@@ -201,12 +243,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SetRepositoryServiceResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetStatusEnvio }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "setRepositoryServiceResponse")
-    public JAXBElement<SetRepositoryServiceResponse> createSetRepositoryServiceResponse(SetRepositoryServiceResponse value) {
-        return new JAXBElement<SetRepositoryServiceResponse>(_SetRepositoryServiceResponse_QNAME, SetRepositoryServiceResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getStatusEnvio")
+    public JAXBElement<GetStatusEnvio> createGetStatusEnvio(GetStatusEnvio value) {
+        return new JAXBElement<GetStatusEnvio>(_GetStatusEnvio_QNAME, GetStatusEnvio.class, null, value);
     }
 
     /**
@@ -219,12 +261,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetLiquidaciones }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RenviarEmail }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getLiquidaciones")
-    public JAXBElement<GetLiquidaciones> createGetLiquidaciones(GetLiquidaciones value) {
-        return new JAXBElement<GetLiquidaciones>(_GetLiquidaciones_QNAME, GetLiquidaciones.class, null, value);
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "renviarEmail")
+    public JAXBElement<RenviarEmail> createRenviarEmail(RenviarEmail value) {
+        return new JAXBElement<RenviarEmail>(_RenviarEmail_QNAME, RenviarEmail.class, null, value);
     }
 
     /**
@@ -234,6 +276,78 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getLiquidacionesResponse")
     public JAXBElement<GetLiquidacionesResponse> createGetLiquidacionesResponse(GetLiquidacionesResponse value) {
         return new JAXBElement<GetLiquidacionesResponse>(_GetLiquidacionesResponse_QNAME, GetLiquidacionesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetLiquidacionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getLiquidacionResponse")
+    public JAXBElement<GetLiquidacionResponse> createGetLiquidacionResponse(GetLiquidacionResponse value) {
+        return new JAXBElement<GetLiquidacionResponse>(_GetLiquidacionResponse_QNAME, GetLiquidacionResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetGrailsApplication }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getGrailsApplication")
+    public JAXBElement<GetGrailsApplication> createGetGrailsApplication(GetGrailsApplication value) {
+        return new JAXBElement<GetGrailsApplication>(_GetGrailsApplication_QNAME, GetGrailsApplication.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetStatusEnvioResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getStatusEnvioResponse")
+    public JAXBElement<GetStatusEnvioResponse> createGetStatusEnvioResponse(GetStatusEnvioResponse value) {
+        return new JAXBElement<GetStatusEnvioResponse>(_GetStatusEnvioResponse_QNAME, GetStatusEnvioResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RenviarEmailResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "renviarEmailResponse")
+    public JAXBElement<RenviarEmailResponse> createRenviarEmailResponse(RenviarEmailResponse value) {
+        return new JAXBElement<RenviarEmailResponse>(_RenviarEmailResponse_QNAME, RenviarEmailResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetGrailsApplication }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "setGrailsApplication")
+    public JAXBElement<SetGrailsApplication> createSetGrailsApplication(SetGrailsApplication value) {
+        return new JAXBElement<SetGrailsApplication>(_SetGrailsApplication_QNAME, SetGrailsApplication.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetGrailsApplicationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getGrailsApplicationResponse")
+    public JAXBElement<GetGrailsApplicationResponse> createGetGrailsApplicationResponse(GetGrailsApplicationResponse value) {
+        return new JAXBElement<GetGrailsApplicationResponse>(_GetGrailsApplicationResponse_QNAME, GetGrailsApplicationResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetRepositoryServiceResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "setRepositoryServiceResponse")
+    public JAXBElement<SetRepositoryServiceResponse> createSetRepositoryServiceResponse(SetRepositoryServiceResponse value) {
+        return new JAXBElement<SetRepositoryServiceResponse>(_SetRepositoryServiceResponse_QNAME, SetRepositoryServiceResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetLiquidaciones }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getLiquidaciones")
+    public JAXBElement<GetLiquidaciones> createGetLiquidaciones(GetLiquidaciones value) {
+        return new JAXBElement<GetLiquidaciones>(_GetLiquidaciones_QNAME, GetLiquidaciones.class, null, value);
     }
 
     /**
@@ -252,24 +366,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://erad.visa.com/", name = "setGrailsApplicationResponse")
     public JAXBElement<SetGrailsApplicationResponse> createSetGrailsApplicationResponse(SetGrailsApplicationResponse value) {
         return new JAXBElement<SetGrailsApplicationResponse>(_SetGrailsApplicationResponse_QNAME, SetGrailsApplicationResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetGrailsApplication }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getGrailsApplication")
-    public JAXBElement<GetGrailsApplication> createGetGrailsApplication(GetGrailsApplication value) {
-        return new JAXBElement<GetGrailsApplication>(_GetGrailsApplication_QNAME, GetGrailsApplication.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetLiquidacionResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://erad.visa.com/", name = "getLiquidacionResponse")
-    public JAXBElement<GetLiquidacionResponse> createGetLiquidacionResponse(GetLiquidacionResponse value) {
-        return new JAXBElement<GetLiquidacionResponse>(_GetLiquidacionResponse_QNAME, GetLiquidacionResponse.class, null, value);
     }
 
 }

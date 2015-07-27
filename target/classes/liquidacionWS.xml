@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="LiquidacionWSServiceService" targetNamespace="http://erad.visa.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://erad.visa.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://erad.visa.com/" version="1.0" xmlns:tns="http://erad.visa.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="getGrailsApplication" type="tns:getGrailsApplication"/>
+<xs:element name="getGrailsApplicationResponse" type="tns:getGrailsApplicationResponse"/>
+<xs:element name="getLiquidacion" type="tns:getLiquidacion"/>
+<xs:element name="getLiquidacionResponse" type="tns:getLiquidacionResponse"/>
+<xs:element name="getLiquidaciones" type="tns:getLiquidaciones"/>
+<xs:element name="getLiquidacionesResponse" type="tns:getLiquidacionesResponse"/>
+<xs:element name="getRepositoryService" type="tns:getRepositoryService"/>
+<xs:element name="getRepositoryServiceResponse" type="tns:getRepositoryServiceResponse"/>
+<xs:element name="setGrailsApplication" type="tns:setGrailsApplication"/>
+<xs:element name="setGrailsApplicationResponse" type="tns:setGrailsApplicationResponse"/>
+<xs:element name="setRepositoryService" type="tns:setRepositoryService"/>
+<xs:element name="setRepositoryServiceResponse" type="tns:setRepositoryServiceResponse"/>
+<xs:complexType name="getLiquidacion">
+<xs:sequence>
+<xs:element minOccurs="0" name="liquidacionID" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLiquidacionResponse">
+<xs:sequence>
+<xs:element form="qualified" minOccurs="0" name="liquidacionResponse" type="tns:liquidacionResponse"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="liquidacionResponse">
+<xs:complexContent>
+<xs:extension base="tns:abstractResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="document" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="abstractResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoError" type="xs:string"/>
+<xs:element minOccurs="0" name="mensaje" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLiquidaciones">
+<xs:sequence>
+<xs:element minOccurs="0" name="fechaDesde" type="xs:string"/>
+<xs:element minOccurs="0" name="fechaHasta" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroCuenta" type="xs:string"/>
+<xs:element minOccurs="0" name="plataforma" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getLiquidacionesResponse">
+<xs:sequence>
+<xs:element form="qualified" minOccurs="0" name="liquidacionesResponse" type="tns:liquidacionesResponse"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="liquidacionesResponse">
+<xs:complexContent>
+<xs:extension base="tns:abstractResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="liquidaciones" nillable="true" type="tns:liquidacionWS"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="liquidacionWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="numeroCuenta" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:string"/>
+<xs:element minOccurs="0" name="fecha" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getRepositoryService">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getRepositoryServiceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setGrailsApplication">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setGrailsApplicationResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="setRepositoryService">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="setRepositoryServiceResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getGrailsApplication">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getGrailsApplicationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="setGrailsApplication">
+    <wsdl:part element="tns:setGrailsApplication" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGrailsApplicationResponse">
+    <wsdl:part element="tns:getGrailsApplicationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRepositoryServiceResponse">
+    <wsdl:part element="tns:getRepositoryServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setRepositoryService">
+    <wsdl:part element="tns:setRepositoryService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setRepositoryServiceResponse">
+    <wsdl:part element="tns:setRepositoryServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLiquidacion">
+    <wsdl:part element="tns:getLiquidacion" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRepositoryService">
+    <wsdl:part element="tns:getRepositoryService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLiquidacionesResponse">
+    <wsdl:part element="tns:getLiquidacionesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLiquidaciones">
+    <wsdl:part element="tns:getLiquidaciones" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setGrailsApplicationResponse">
+    <wsdl:part element="tns:setGrailsApplicationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGrailsApplication">
+    <wsdl:part element="tns:getGrailsApplication" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLiquidacionResponse">
+    <wsdl:part element="tns:getLiquidacionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="liquidacionesWS">
+    <wsdl:operation name="getLiquidacion">
+      <wsdl:input message="tns:getLiquidacion" name="getLiquidacion">
+    </wsdl:input>
+      <wsdl:output message="tns:getLiquidacionResponse" name="getLiquidacionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLiquidaciones">
+      <wsdl:input message="tns:getLiquidaciones" name="getLiquidaciones">
+    </wsdl:input>
+      <wsdl:output message="tns:getLiquidacionesResponse" name="getLiquidacionesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRepositoryService">
+      <wsdl:input message="tns:getRepositoryService" name="getRepositoryService">
+    </wsdl:input>
+      <wsdl:output message="tns:getRepositoryServiceResponse" name="getRepositoryServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setGrailsApplication">
+      <wsdl:input message="tns:setGrailsApplication" name="setGrailsApplication">
+    </wsdl:input>
+      <wsdl:output message="tns:setGrailsApplicationResponse" name="setGrailsApplicationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setRepositoryService">
+      <wsdl:input message="tns:setRepositoryService" name="setRepositoryService">
+    </wsdl:input>
+      <wsdl:output message="tns:setRepositoryServiceResponse" name="setRepositoryServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrailsApplication">
+      <wsdl:input message="tns:getGrailsApplication" name="getGrailsApplication">
+    </wsdl:input>
+      <wsdl:output message="tns:getGrailsApplicationResponse" name="getGrailsApplicationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LiquidacionWSServiceServiceSoapBinding" type="tns:liquidacionesWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLiquidacion">
+      <soap:operation soapAction="http://erad.visa.com/getLiquidacion" style="document"/>
+      <wsdl:input name="getLiquidacion">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLiquidacionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLiquidaciones">
+      <soap:operation soapAction="http://erad.visa.com/getLiquidaciones" style="document"/>
+      <wsdl:input name="getLiquidaciones">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLiquidacionesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRepositoryService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRepositoryService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRepositoryServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setGrailsApplication">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setGrailsApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setGrailsApplicationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setRepositoryService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setRepositoryService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setRepositoryServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrailsApplication">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getGrailsApplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGrailsApplicationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LiquidacionWSServiceService">
+    <wsdl:port binding="tns:LiquidacionWSServiceServiceSoapBinding" name="liquidacionesWSPort">
+      <soap:address location="http://localhost:8080/resumenes/services/liquidacionWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

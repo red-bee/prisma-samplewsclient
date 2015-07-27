@@ -10,6 +10,7 @@ import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.log4j.Logger;
 
+import com.visa.erad.EnvioStatusResponse;
 import com.visa.erad.LiquidacionResponse;
 import com.visa.erad.LiquidacionWSServiceService;
 import com.visa.erad.LiquidacionesResponse;
@@ -32,8 +33,8 @@ public final class SampleClient {
     	Logger logger = Logger.getLogger(SampleClient.class);
     	
     	//url o path del wsdl 
-        //URL wsdlURL = new URL("http://localhost:8080/resumenes/services/liquidacionWS?wsdl");
-        URL wsdlURL = new URL("liquidacionWS.xml");
+        URL wsdlURL = new URL("http://localhost:8080/resumenes/services/liquidacionWS?wsdl");
+//        URL wsdlURL = new URL("liquidacionWS.xml");
         
         LiquidacionWSServiceService ss = new LiquidacionWSServiceService(wsdlURL, SERVICE_NAME);
         LiquidacionesWS port = ss.getLiquidacionesWSPort(); 
@@ -69,7 +70,22 @@ public final class SampleClient {
             System.out.println("codigo error: " + liquidacionResponse.getCodigoError());
             System.out.println("mensaje: " + liquidacionResponse.getMensaje());
             System.out.println("liquidacion: " + liquidacionResponse.getDocument());
+            
+            
+       	 	System.out.println("invicando getEnvios...");
+       	 	//seteo parametros para invocar al ws
+		    String _getEnvios_nroCuenta = "321309407584249";
+		    EnvioStatusResponse enviosResponse = port.getStatusEnvio(_getEnvios_nroCuenta);
+            
+		    System.out.println("getEnvio.result=" + enviosResponse);
+            System.out.println("codigo error: " + enviosResponse.getCodigoError());
+            System.out.println("mensaje: " + enviosResponse.getMensaje());
+            System.out.println("envios: " + enviosResponse.getEnvios());
 
+            System.out.println("Invoking renviarEmail...");
+            java.lang.String _renviarEmail_token = "29d872ac-81ce-4dd5-8e3e-680861e239f1";
+            com.visa.erad.ReenvioResponse _renviarEmail__return = port.renviarEmail(_renviarEmail_token);
+            System.out.println("renviarEmail.result=" + _renviarEmail__return.getMensaje());
             
         } catch (Exception e) {
             System.out.println("Invocation failed with the following: " + e.getCause());

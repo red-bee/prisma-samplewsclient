@@ -33,7 +33,9 @@ import javax.xml.bind.annotation.XmlType;
     "mensaje"
 })
 @XmlSeeAlso({
+    ReenvioResponse.class,
     LiquidacionesResponse.class,
+    EnvioStatusResponse.class,
     LiquidacionResponse.class
 })
 public abstract class AbstractResponse {
