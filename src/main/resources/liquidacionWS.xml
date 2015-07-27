@@ -9,6 +9,10 @@
 <xs:element name="getLiquidacionesResponse" type="tns:getLiquidacionesResponse"/>
 <xs:element name="getRepositoryService" type="tns:getRepositoryService"/>
 <xs:element name="getRepositoryServiceResponse" type="tns:getRepositoryServiceResponse"/>
+<xs:element name="getStatusEnvio" type="tns:getStatusEnvio"/>
+<xs:element name="getStatusEnvioResponse" type="tns:getStatusEnvioResponse"/>
+<xs:element name="renviarEmail" type="tns:renviarEmail"/>
+<xs:element name="renviarEmailResponse" type="tns:renviarEmailResponse"/>
 <xs:element name="setGrailsApplication" type="tns:setGrailsApplication"/>
 <xs:element name="setGrailsApplicationResponse" type="tns:setGrailsApplicationResponse"/>
 <xs:element name="setRepositoryService" type="tns:setRepositoryService"/>
@@ -37,6 +41,23 @@
 <xs:element minOccurs="0" name="codigoError" type="xs:string"/>
 <xs:element minOccurs="0" name="mensaje" type="xs:string"/>
 </xs:sequence>
+</xs:complexType>
+<xs:complexType name="renviarEmail">
+<xs:sequence>
+<xs:element minOccurs="0" name="token" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="renviarEmailResponse">
+<xs:sequence>
+<xs:element form="qualified" minOccurs="0" name="reenvioResponse" type="tns:reenvioResponse"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="reenvioResponse">
+<xs:complexContent>
+<xs:extension base="tns:abstractResponse">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
 </xs:complexType>
 <xs:complexType name="getLiquidaciones">
 <xs:sequence>
@@ -75,6 +96,36 @@
 <xs:element minOccurs="0" name="return" type="xs:anyType"/>
 </xs:sequence>
 </xs:complexType>
+<xs:complexType name="getStatusEnvio">
+<xs:sequence>
+<xs:element minOccurs="0" name="numeroCuenta" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getStatusEnvioResponse">
+<xs:sequence>
+<xs:element form="qualified" minOccurs="0" name="envioStatusResponse" type="tns:envioStatusResponse"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="envioStatusResponse">
+<xs:complexContent>
+<xs:extension base="tns:abstractResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="envios" nillable="true" type="tns:envio"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="envio">
+<xs:sequence>
+<xs:element minOccurs="0" name="codBanco" type="xs:string"/>
+<xs:element minOccurs="0" name="nroCuenta" type="xs:string"/>
+<xs:element minOccurs="0" name="email" type="xs:string"/>
+<xs:element minOccurs="0" name="okDate" type="xs:string"/>
+<xs:element minOccurs="0" name="status" type="xs:string"/>
+<xs:element minOccurs="0" name="token" type="xs:string"/>
+<xs:element minOccurs="0" name="actualizacionDate" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
 <xs:complexType name="setGrailsApplication">
 <xs:sequence>
 <xs:element minOccurs="0" name="arg0" type="xs:anyType"/>
@@ -101,14 +152,6 @@
 </xs:complexType>
 </xs:schema>
   </wsdl:types>
-  <wsdl:message name="setGrailsApplication">
-    <wsdl:part element="tns:setGrailsApplication" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getGrailsApplicationResponse">
-    <wsdl:part element="tns:getGrailsApplicationResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="getRepositoryServiceResponse">
     <wsdl:part element="tns:getRepositoryServiceResponse" name="parameters">
     </wsdl:part>
@@ -117,28 +160,20 @@
     <wsdl:part element="tns:setRepositoryService" name="parameters">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="setRepositoryServiceResponse">
-    <wsdl:part element="tns:setRepositoryServiceResponse" name="parameters">
+  <wsdl:message name="getStatusEnvio">
+    <wsdl:part element="tns:getStatusEnvio" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getLiquidacion">
     <wsdl:part element="tns:getLiquidacion" name="parameters">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="getRepositoryService">
-    <wsdl:part element="tns:getRepositoryService" name="parameters">
+  <wsdl:message name="renviarEmail">
+    <wsdl:part element="tns:renviarEmail" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getLiquidacionesResponse">
     <wsdl:part element="tns:getLiquidacionesResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getLiquidaciones">
-    <wsdl:part element="tns:getLiquidaciones" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="setGrailsApplicationResponse">
-    <wsdl:part element="tns:setGrailsApplicationResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getGrailsApplication">
@@ -149,11 +184,49 @@
     <wsdl:part element="tns:getLiquidacionResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getStatusEnvioResponse">
+    <wsdl:part element="tns:getStatusEnvioResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="renviarEmailResponse">
+    <wsdl:part element="tns:renviarEmailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setGrailsApplication">
+    <wsdl:part element="tns:setGrailsApplication" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGrailsApplicationResponse">
+    <wsdl:part element="tns:getGrailsApplicationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setRepositoryServiceResponse">
+    <wsdl:part element="tns:setRepositoryServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLiquidaciones">
+    <wsdl:part element="tns:getLiquidaciones" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRepositoryService">
+    <wsdl:part element="tns:getRepositoryService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setGrailsApplicationResponse">
+    <wsdl:part element="tns:setGrailsApplicationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="liquidacionesWS">
     <wsdl:operation name="getLiquidacion">
       <wsdl:input message="tns:getLiquidacion" name="getLiquidacion">
     </wsdl:input>
       <wsdl:output message="tns:getLiquidacionResponse" name="getLiquidacionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="renviarEmail">
+      <wsdl:input message="tns:renviarEmail" name="renviarEmail">
+    </wsdl:input>
+      <wsdl:output message="tns:renviarEmailResponse" name="renviarEmailResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getLiquidaciones">
@@ -166,6 +239,12 @@
       <wsdl:input message="tns:getRepositoryService" name="getRepositoryService">
     </wsdl:input>
       <wsdl:output message="tns:getRepositoryServiceResponse" name="getRepositoryServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatusEnvio">
+      <wsdl:input message="tns:getStatusEnvio" name="getStatusEnvio">
+    </wsdl:input>
+      <wsdl:output message="tns:getStatusEnvioResponse" name="getStatusEnvioResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="setGrailsApplication">
@@ -198,6 +277,15 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="renviarEmail">
+      <soap:operation soapAction="http://erad.visa.com/renviarEmail" style="document"/>
+      <wsdl:input name="renviarEmail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="renviarEmailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getLiquidaciones">
       <soap:operation soapAction="http://erad.visa.com/getLiquidaciones" style="document"/>
       <wsdl:input name="getLiquidaciones">
@@ -213,6 +301,15 @@
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="getRepositoryServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatusEnvio">
+      <soap:operation soapAction="http://erad.visa.com/getStatusEnvio" style="document"/>
+      <wsdl:input name="getStatusEnvio">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStatusEnvioResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
